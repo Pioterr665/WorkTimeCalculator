@@ -1,0 +1,15 @@
+﻿@model HourCalcMVC.Models.DailyHour;
+@{
+    ViewData["Title"] = "Delete";
+    var id = ViewBag.Id;
+}
+<div class="text-center">
+    <h1 class="display-4">Are you sure?</h1>
+</div>
+<div class="content text-center m-2 p-2">
+        <form asp-action="DeleteConfirmed">
+            <input type="hidden" asp-for="Id" />
+            <input class="btn btn-danger" type="submit" value="Delete" />
+            <a asp-action="Index" class="btn btn-primary">Cancel</a>
+        </form>
+</div>

@@ -1,0 +1,34 @@
+﻿@model HourCalcMVC.Models.DailyHour;
+
+@{
+    ViewData["Title"] = "Add Hours";
+}
+
+<div class="row text-center m-auto p-2">
+    <div class="col-md-4 text-center">
+    <h1 class="display-4">Add Day</h1>
+    <form asp-action="Add">
+        <div class="form-group">
+                <label class="form-label" asp-for="Shift">First</label>
+            <input type="radio" asp-for="Shift" value="First" id="Shift" />
+                <label class="form-label" asp-for="Shift">Second</label>
+            <input type="radio" asp-for="Shift" value="Second" id="Shift" />
+                <label class="form-label" asp-for="Shift">Custom</label>
+            <input type="radio" asp-for="Shift" value="Custom" id="Shift" checked="checked" />
+        </div>
+        <div class="form-group">
+            <label class="form-label" asp-for="StartingHour"></label>
+            <input class="form-control" asp-for="StartingHour" type="time" />
+        </div>
+        <div class="form-group">
+            <label class="form-label" asp-for="EndingHour"></label>
+            <input class="form-control" asp-for="EndingHour" type="time" />
+        </div>
+        <div class="form-group">
+            <label class="form-label" asp-for="Date"></label>
+            <input class="form-control" asp-for="Date" type="date" />
+        </div>
+        <div><input type="submit" value="Add" class="btn btn-primary" /></div>
+    </form>
+    </div>
+</div>

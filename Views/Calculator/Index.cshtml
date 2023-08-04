@@ -1,0 +1,40 @@
+﻿@model IEnumerable<HourCalcMVC.Models.DailyHour>;
+
+@{
+    ViewData["Title"] = "Work Hour Calculator";
+    var months = new Dictionary<int, string>
+    {
+                {1, "Styczeń" },
+                {2, "Luty" },
+                {3, "Marzec" },
+                {4, "Kwiecień" },
+                {5, "Maj" },
+                {6, "Czerwiec" },
+                {7, "Lipiec" },
+                {8, "Sierpień" },
+                {9, "Wrzesień" },
+                {10, "Październik" },
+                {11, "Listopad" },
+                {12, "Grudzień" },
+    };
+}
+
+<div class="text-center">
+    <h1 class="display-4">Choose month</h1>
+</div>
+@foreach(var item in months)
+{
+    int id = 0;
+    TimeOnly TotalTime = new TimeOnly();
+    @foreach (var time in Model.Where(m => m.Date.Month == item.Key))
+    {
+        var a = TimeOnly.Parse(time.Total);
+        TotalTime = TotalTime.Add(a.ToTimeSpan());
+        id = item.Key;
+    }
+    <div class="rounded border border-dark p-2 m-2 bg-main">
+        <p>@item.Value</p><p>Monthly Working Time: @TotalTime.ToString("HH:mm")</p>
+        <a class="btn btn-primary" asp-action="Details" asp-route-id="@id">GoTo...</a>
+    </div>
+
+}
