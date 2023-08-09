@@ -101,3 +101,6 @@ C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\bin\Debug\net7.0\runtimes\wi
 C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\obj\Debug\net7.0\HourCalcMVC.csproj.CopyComplete
+C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\bin\Debug\net7.0\SQLite-net.dll
+C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\bin\Debug\net7.0\SQLitePCLRaw.nativelibrary.dll
+C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\bin\Debug\net7.0\SQLitePCLRaw.provider.dynamic_cdecl.dll

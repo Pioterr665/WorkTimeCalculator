@@ -1,4 +1,5 @@
 using HourCalcMVC.Models;
+using HourCalcMVC.Services;
 
 namespace HourCalcMVC
 {
@@ -11,6 +12,7 @@ namespace HourCalcMVC
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<CalcDbContext>();
+            builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
