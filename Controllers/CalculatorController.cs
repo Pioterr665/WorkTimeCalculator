@@ -35,7 +35,8 @@ namespace HourCalcMVC.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             ViewBag.Id = Id;
-            return View(await _dbContext.dailyHours.FirstOrDefaultAsync(d => d.Id == Id));
+            var delete = await _databaseService.GetAll();
+            return View(delete.Where(d => d.Id == Id));
         }
         [HttpPost]
         public async Task<IActionResult> Add(DailyHour dailyHour)
