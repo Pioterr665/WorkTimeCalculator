@@ -25,15 +25,27 @@
 @foreach(var item in months)
 {
     int id = 0;
-    TimeOnly TotalTime = new TimeOnly();
+    int hours = 00;
+    int minutes = 00;
+    TimeSpan TotalTime = new TimeSpan();
     @foreach (var time in Model.Where(m => m.Date.Month == item.Key))
     {
         var a = TimeOnly.Parse(time.Total);
         TotalTime = TotalTime.Add(a.ToTimeSpan());
+        @if (TotalTime.Days >= 1)
+        {
+            hours = TotalTime.Days * 24 + TotalTime.Hours;
+            minutes = TotalTime.Minutes;
+        }
+        else
+        {
+            hours = TotalTime.Hours;
+            minutes = TotalTime.Minutes;
+        }
         id = item.Key;
     }
     <div class="rounded border border-dark p-2 m-2 bg-main">
-        <p>@item.Value</p><p>Monthly Working Time: @TotalTime.ToString("HH:mm")</p>
+        <p>@item.Value</p><p>Monthly Working Time: @hours.ToString("00"):@minutes.ToString("00")</p>
         <a class="btn btn-primary" asp-action="Details" asp-route-id="@id">GoTo...</a>
     </div>
 

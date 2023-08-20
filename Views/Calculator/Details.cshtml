@@ -3,7 +3,9 @@
 @{
     ViewData["Title"] = "Work Hour Calculator";
     var id = ViewBag.Id;
-    DateTime TotalTime = new DateTime();
+    int hours = 0;
+    int minutes = 0;
+    TimeSpan TotalTime = new TimeSpan();
 
     var months = new Dictionary<int, string>
     {
@@ -23,14 +25,37 @@
     var mon = months.FirstOrDefault(m => m.Key == id).Value;
     @foreach (var item in Model.Where(m => m.Date.Month == id))
     {
+        hours += DateTime.Parse(item.Total).Hour;
+        minutes += DateTime.Parse(item.Total).Minute;
         TotalTime = TotalTime.Add(TimeOnly.FromDateTime(DateTime.Parse(item.Total)).ToTimeSpan());
     }
 }
-
+@if (TotalTime.Days >= 1)
+{
+    hours = TotalTime.Days * 24 + TotalTime.Hours;
+    minutes = TotalTime.Minutes;
+}
+else
+{
+    hours = TotalTime.Hours;
+    minutes = TotalTime.Minutes;
+}
 <div class="text-center">
     <h1 class="display-4">@mon</h1>
     //displaying clock not total worked hours FIXIT!!!(display hours and minutes in separeted int's)
-    <h4>Total time @TotalTime.ToString("HH:mm")</h4>
+     @if(minutes == 0)
+        {
+        <h4>
+            Total time @hours.ToString("00")
+        </h4>
+        }else
+        {
+        <h4>
+            Total time @hours.ToString("00"):@minutes.ToString("00")
+        </h4>
+        }
+
+    
 </div>
 @foreach (var item in Model.Where(m => m.Date.Month == id))
 {
