@@ -5,6 +5,8 @@
     var id = ViewBag.Id;
     int hours = 0;
     int minutes = 0;
+    int firstShift = 0;
+    int secondShift = 0;
     TimeSpan TotalTime = new TimeSpan();
 
     var months = new Dictionary<int, string>
@@ -28,6 +30,14 @@
         hours += DateTime.Parse(item.Total).Hour;
         minutes += DateTime.Parse(item.Total).Minute;
         TotalTime = TotalTime.Add(TimeOnly.FromDateTime(DateTime.Parse(item.Total)).ToTimeSpan());
+        if(item.Shift == "First")
+        {
+            firstShift += 1;
+        }
+        else if(item.Shift == "Second")
+        {
+            secondShift += 1;
+        }
     }
 }
 @if (TotalTime.Days >= 1)
@@ -42,7 +52,6 @@ else
 }
 <div class="text-center">
     <h1 class="display-4">@mon</h1>
-    //displaying clock not total worked hours FIXIT!!!(display hours and minutes in separeted int's)
      @if(minutes == 0)
         {
         <h4>
@@ -54,10 +63,12 @@ else
             Total time @hours.ToString("00"):@minutes.ToString("00")
         </h4>
         }
+    <p>Ilość pierwszych zmian: @firstShift</p>
+    <p>Ilość drugich zmian: @secondShift</p>
 
     
 </div>
-@foreach (var item in Model.Where(m => m.Date.Month == id))
+@foreach (var item in Model.Where(m => m.Date.Month == id).OrderBy(d => d.Date))
 {
     <div class="rounded border border-dark p-2 m-2 bg-main">
         <p>Started at: @item.StartingHour.ToString("HH:mm")</p>

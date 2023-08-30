@@ -49,8 +49,6 @@ namespace HourCalcMVC.Controllers
                 var a = TimeOnly.FromDateTime(dailyHour.EndingHour) - TimeOnly.FromDateTime(dailyHour.StartingHour);
                 dailyHour.Total = a.ToString();
                 response = await _databaseService.Add(dailyHour);
-                //_dbContext.dailyHours.Add(dailyHour);
-               // response = await _dbContext.SaveChangesAsync();
             }
             else if (dailyHour.Shift == "Second")
             {
@@ -59,8 +57,6 @@ namespace HourCalcMVC.Controllers
                 var a = TimeOnly.FromDateTime(dailyHour.EndingHour) - TimeOnly.FromDateTime(dailyHour.StartingHour);
                 dailyHour.Total = a.ToString();
                 response = await _databaseService.Add(dailyHour);
-               // _dbContext.dailyHours.Add(dailyHour);
-                //await _dbContext.SaveChangesAsync();
             }
             else if(dailyHour.Shift == "Custom")
             {
@@ -69,16 +65,12 @@ namespace HourCalcMVC.Controllers
                 var c = b - a;
                 dailyHour.Total = c.ToString();
                 response = await _databaseService.Add(dailyHour);
-                //_dbContext.dailyHours.Add(dailyHour);
-                //await _dbContext.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
         public async Task<IActionResult> DeleteConfirmed(int? id)
         {
-            //_dbContext.dailyHours.Remove(await _dbContext.dailyHours.FindAsync(id));
-            //await _dbContext.SaveChangesAsync();
             response = await _databaseService.Delete(id);
             return RedirectToAction(nameof(Index));
         }

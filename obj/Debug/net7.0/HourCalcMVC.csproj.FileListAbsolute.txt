@@ -104,3 +104,4 @@ C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\obj\Debug\net7.0\HourCalcMVC
 C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\bin\Debug\net7.0\SQLite-net.dll
 C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\bin\Debug\net7.0\SQLitePCLRaw.nativelibrary.dll
 C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\bin\Debug\net7.0\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\stemp\source\repos\HourCalcMVC\HourCalcMVC\obj\Debug\net7.0\HourCalcMVC.sourcelink.json

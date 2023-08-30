@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HourCalcMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c899c1c9bf19dece88364cfa7fbde081b8468c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("HourCalcMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HourCalcMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
