@@ -1,2 +1,5 @@
 /Program.cs
 Properties/
+Data/
+/appsettings.json
+/appsettings.Development.json
